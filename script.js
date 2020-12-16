@@ -16,7 +16,7 @@ const data = async () => {
 
   for (let i = 0; i <= thisData.length; i++) {
     let options = {
-      x: i,
+      x: i%60,
       y: Math.floor(i / 60)
     };
     let dataOfThis = {
@@ -37,7 +37,7 @@ const trainModel = async () => {
 // te dice en que generacion estas y el loss
 const whileTraining = async (epoch, loss) => {
   document.getElementById("epoch").innerText = epoch;
-  document.getElementById("loss").innerText = loss.loss * 10;
+  document.getElementById("loss").innerText = loss.loss ;
 };
 // solo avisa cuando termina
 const finishTraining = () => {
@@ -50,7 +50,7 @@ const predictThis = () => {
   document.querySelector("#prediction").innerText = "";
   for (let i = 0; i <= 200; i++) {
     let options = {
-      x: i,
+      x: i%60,
       y: Math.floor(i / 60)
     };
     console.log(i);
