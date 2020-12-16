@@ -29,7 +29,7 @@ const data = async () => {
 // lo unico que hace es que empieza a entrenar el modelo
 const trainModel = async () => {
   let options = {
-    epochs: 400
+    epochs: 800
   };
   //model.normalizeData();
   model.train(options, whileTraining, finishTraining);
@@ -42,6 +42,7 @@ const whileTraining = async (epoch, loss) => {
 // solo avisa cuando termina
 const finishTraining = () => {
   alert("model trained");
+  model.save("textGenerator")
 };
 /*
 lo que hace es repasar hacer una prediccion basica
