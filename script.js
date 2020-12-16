@@ -8,6 +8,7 @@ let options = {
   task: "classification",
   debug: true
 };
+var dataOfThis = ""
 var model = ml5.neuralNetwork(options);
 
 const data = () => {
@@ -39,25 +40,25 @@ const finishTraining = () => {
   alert("model trained");
 };
 const predictThis = () => {
-  var data = "";
+  dataOfThis = "";
   for (let i = 0; i <= 200; i++) {
     let options = {
       x: i,
       y: Math.floor(i / 60)
     };
+    console.log(i)
     model.classify(options, gotResults);
   }
+  document.querySelector("#prediction").innerText=dataOfThis
 };
-const gotResults=()=>{
-  function gotResults(error, results) {
+const gotResults = (error, results) => {
   if (error) {
     console.log(error);
     return;
-  } 
-  data=results[0].label
-
-}
-}
+  }
+  console.dir( results)
+  dataOfThis += results[0].label;
+};
 
 //
 /*
