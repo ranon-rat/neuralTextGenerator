@@ -3,9 +3,19 @@
 body {
   font-family: helvetica, arial, sans-serif;
   margin: 2em;
+  background-color:#000;
+  color:#fff;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
+#contenedor{
+  display: inline-block;
+  min-width: 100px;
 }
+
+#texto{
+  color:#000;
+  background-color: #fff;
+  width: 500px;
+}
+
+
