@@ -13,7 +13,7 @@ var model = ml5.neuralNetwork(options);
 // eso agrega data a la base de datos
 const data = async () => {
   var thisData = document.querySelector("#texto").outerText.split("");
-
+  console.log("more data")
   for (let i = 0; i <= thisData.length; i++) {
     let options = {
       x: i%60,
