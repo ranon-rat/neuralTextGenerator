@@ -70,7 +70,7 @@ const gotResults = (error, results) => {
     return;
   }
   console.dir(results);
-  if (results[0].label) {
+  if (results[0].label != undefined) {
     document.querySelector("#prediction").innerText += results[0].label;
   }
 };
