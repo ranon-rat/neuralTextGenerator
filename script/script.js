@@ -52,7 +52,7 @@ lo que hace es repasar hacer una prediccion basica
 */
 const predictThis = () => {
   document.querySelector("#prediction").innerText = "";
-  for (let i = 0; i <= 200; i++) {
+  for (let i = 0; i <= 50; i++) {
     let options = {
       x: i % 60,
       y: Math.floor(i / 60) + 1,
