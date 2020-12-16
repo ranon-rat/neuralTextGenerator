@@ -9,9 +9,9 @@
     <title>generative words</title>
 
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style/style.css" />
 
-    <script src="/script.js" defer></script>
+    <script src="/script/script.js"></script>
   </head>
   <body>
     <div id="presentation">
@@ -31,23 +31,13 @@
       <div id="texto" contenteditable="true"></div>
     </div>
     <p>
-      <button onclick="data()">
-        add to data
-      </button>
-      <button onclick="trainModel()">
-        train the model
-      </button>
-      <button onclick="predictThis()">
-        generate
-      </button>
+      <button onclick="data()">add to data</button>
+      <button onclick="trainModel()">train the model</button>
+      <button onclick="predictThis()">generate</button>
     </p>
     <div id="predictionDiv">
-      <h4>
-        here is only the part where the data output is generated
-      </h4>
-      <h1>
-        the generator of text
-      </h1>
+      <h4>here is only the part where the data output is generated</h4>
+      <h1>the generator of text</h1>
       <h4 id="prediction"></h4>
     </div>
   </body>

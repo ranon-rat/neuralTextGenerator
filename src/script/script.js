@@ -13,11 +13,11 @@ var model = ml5.neuralNetwork(options);
 // eso agrega data a la base de datos
 const data = async () => {
   var thisData = document.querySelector("#texto").outerText.split("");
-  console.log("more data")
+  console.log("more data");
   for (let i = 0; i <= thisData.length; i++) {
     let options = {
-      x: i%60,
-      y: Math.floor(i / 60)
+      x: i % 60,
+      y: Math.floor(i / 60)+1
     };
     let dataOfThis = {
       label: thisData[i]
@@ -32,18 +32,21 @@ const trainModel = () => {
     epochs: 800
   };
   model.normalizeData();
-  model.train(options, whileTraining, finishTraining);
+  model.train(
+    options,
+    (epoch, loss) => {
+      document.getElementById("epoch").innerText = epoch;
+      document.getElementById("loss").innerText = loss.loss;
+    },
+    () => {
+      alert("model trained");
+    }
+  );
 };
 // te dice en que generacion estas y el loss
-const whileTraining = async (epoch, loss) => {
-  document.getElementById("epoch").innerText = epoch;
-  document.getElementById("loss").innerText = loss.loss ;
-};
+
 // solo avisa cuando termina
-const finishTraining = () => {
-  alert("model trained");
-  model.save("textGenerator")
-};
+
 /*
 lo que hace es repasar hacer una prediccion basica
 */
@@ -51,8 +54,8 @@ const predictThis = () => {
   document.querySelector("#prediction").innerText = "";
   for (let i = 0; i <= 200; i++) {
     let options = {
-      x: i%60,
-      y: Math.floor(i / 60)
+      x: i % 60,
+      y: Math.floor(i / 60)+1
     };
     console.log(i);
     model.classify(options, gotResults);
