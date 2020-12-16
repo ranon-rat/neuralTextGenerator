@@ -1,4 +1,4 @@
-<p align="center">
+<p align=center>
 
 <h1> neuralTextGenerator </h1>
 <h3> This is a practice to understand how an artificial intelligence works, this AI is not pre-trained so you must enter a series of data so that the output makes more sense.</h3>
