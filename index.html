@@ -14,14 +14,18 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
-    <h1>Put some text inside this</h1>
+    <div id="presentation">
+      <h1>Text generator</h1>
+      <h4>
+        This is a practice to understand how an artificial intelligence works,
+        this AI is not pre-trained so you must enter a series of data so that
+        the output makes more sense.
+      </h4>
+    </div>
+
     <h2>
-      <p>
-        loss:<span id = "loss">0</span>%
-      </p>
-      <p>
-        epoch:<span id = "epoch">0</span>
-      </p>
+      <p>loss:<span id="loss">0</span>%</p>
+      <p>epoch:<span id="epoch">0</span></p>
     </h2>
     <div id="contenedor">
       <div id="texto" contenteditable="true"></div>
@@ -34,21 +38,17 @@
         train the model
       </button>
       <button onclick="predictThis()">
-        prediction
-        
+        generate
       </button>
     </p>
-    <div id = "predictionDiv">
-   <h1>
-      the prediction of text
-    </h1>
-    <h4 id = "prediction">
-      
-      
-    </h4>
-     
+    <div id="predictionDiv">
+      <h4>
+        here is only the part where the data output is generated
+      </h4>
+      <h1>
+        the generator of text
+      </h1>
+      <h4 id="prediction"></h4>
     </div>
- 
-
   </body>
 </html>

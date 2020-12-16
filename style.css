@@ -6,6 +6,9 @@ body {
   background-color:#000;
   color:#fff;
 }
+#presentation{
+  width:500px;
+}
 
 #contenedor{
   display: inline-block;
