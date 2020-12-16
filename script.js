@@ -8,10 +8,13 @@ let options = {
   task: "classification",
   debug: true
 };
-var dataOfThis = ""
+
+var globalVar = {
+  data: ""
+};
 var model = ml5.neuralNetwork(options);
 
-const data = () => {
+const data = async () => {
   var thisData = document.querySelector("#texto").outerText.split("");
 
   for (let i = 0; i <= thisData.length; i++) {
@@ -25,9 +28,9 @@ const data = () => {
     model.addData(options, dataOfThis);
   }
 };
-const trainModel = () => {
+const trainModel = async () => {
   let options = {
-    epochs: 200
+    epochs: 400
   };
   model.normalizeData();
   model.train(options, whileTraining, finishTraining);
@@ -40,24 +43,28 @@ const finishTraining = () => {
   alert("model trained");
 };
 const predictThis = () => {
-  dataOfThis = "";
+  document.querySelector("#prediction").innerText = "";
   for (let i = 0; i <= 200; i++) {
     let options = {
       x: i,
       y: Math.floor(i / 60)
     };
-    console.log(i)
+    console.log(i);
     model.classify(options, gotResults);
   }
-  document.querySelector("#prediction").innerText=dataOfThis
 };
 const gotResults = (error, results) => {
   if (error) {
     console.log(error);
     return;
   }
-  console.dir( results)
-  dataOfThis += results[0].label;
+  console.dir(results);
+  document.querySelector("#prediction").innerText += results[0].label;
+  
+  if (document.querySelector("#prediction").innerText.length%60==0){
+    document.querySelector("#prediction").innerText.length+="\n"
+    
+  }
 };
 
 //
