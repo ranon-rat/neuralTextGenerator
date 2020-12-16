@@ -27,11 +27,11 @@ const data = async () => {
   document.querySelector("#texto").innerText = "";
 };
 // lo unico que hace es que empieza a entrenar el modelo
-const trainModel = async () => {
+const trainModel = () => {
   let options = {
     epochs: 800
   };
-  //model.normalizeData();
+  model.normalizeData();
   model.train(options, whileTraining, finishTraining);
 };
 // te dice en que generacion estas y el loss
