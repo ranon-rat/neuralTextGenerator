@@ -70,5 +70,7 @@ const gotResults = (error, results) => {
     return;
   }
   console.dir(results);
-  document.querySelector("#prediction").innerText += results[0].label;
+  if (results[0].label) {
+    document.querySelector("#prediction").innerText += results[0].label;
+  }
 };
