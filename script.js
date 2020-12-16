@@ -6,7 +6,7 @@ let options = {
   inputs: ["x", "y"],
   outputs: ["label"],
   task: "classification",
-  debug: true
+  debug: true,
 };
 
 var model = ml5.neuralNetwork(options);
@@ -17,10 +17,10 @@ const data = async () => {
   for (let i = 0; i <= thisData.length; i++) {
     let options = {
       x: i % 60,
-      y: Math.floor(i / 60)+1
+      y: Math.floor(i / 60) + 1,
     };
     let dataOfThis = {
-      label: thisData[i]
+      label: thisData[i],
     };
     model.addData(options, dataOfThis);
   }
@@ -29,7 +29,7 @@ const data = async () => {
 // lo unico que hace es que empieza a entrenar el modelo
 const trainModel = () => {
   let options = {
-    epochs: 800
+    epochs: 200,
   };
   model.normalizeData();
   model.train(
@@ -55,7 +55,7 @@ const predictThis = () => {
   for (let i = 0; i <= 200; i++) {
     let options = {
       x: i % 60,
-      y: Math.floor(i / 60)+1
+      y: Math.floor(i / 60) + 1,
     };
     console.log(i);
     model.classify(options, gotResults);
