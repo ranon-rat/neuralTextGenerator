@@ -11,9 +11,8 @@ let options = {
 var model = ml5.neuralNetwork(options);
 
 const data = () => {
-  
   var thisData = document.querySelector("#texto").outerText.split("");
-  
+
   for (let i = 0; i <= thisData.length; i++) {
     let options = {
       x: i,
@@ -25,14 +24,40 @@ const data = () => {
     model.addData(options, dataOfThis);
   }
 };
-const trainModel = ()=>{
+const trainModel = () => {
   let options = {
-        epochs: 200
-      };
-      model.normalizeData();
-      model.train(options, whileTraining, finishTraining);
+    epochs: 200
+  };
+  model.normalizeData();
+  model.train(options, whileTraining, finishTraining);
+};
+const whileTraining = async (epoch, loss) => {
+  document.getElementById("epoch").innerText = epoch;
+  document.getElementById("loss").innerText = loss.loss * 10;
+};
+const finishTraining = () => {
+  alert("model trained");
+};
+const predictThis = () => {
+  var data = "";
+  for (let i = 0; i <= 200; i++) {
+    let options = {
+      x: i,
+      y: Math.floor(i / 60)
+    };
+    model.classify(options, gotResults);
+  }
+};
+const gotResults=()=>{
+  function gotResults(error, results) {
+  if (error) {
+    console.log(error);
+    return;
+  } 
+  data=results[0].label
+
 }
-const whileTraining=()=>{}
+}
 
 //
 /*

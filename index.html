@@ -14,15 +14,28 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
-    <h1>put some text inside this</h1>
-
+    <h1>Put some text inside this</h1>
+    <h2>
+      <p>
+        loss:<span id = "loss">0</span>%
+      </p>
+      <p>
+        epoch:<span id = "epoch">0</span>
+      </p>
+    </h2>
     <div id="contenedor">
       <div id="texto" contenteditable="true"></div>
     </div>
     <p>
-      <button onclick="data()">add to data</button>
+      <button onclick="data()">
+        add to data
+      </button>
       <button onclick="trainModel()">
         train the model
+      </button>
+      <button onclick="predictThis()">
+        prediction
+        
       </button>
     </p>
 
