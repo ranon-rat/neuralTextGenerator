@@ -31,7 +31,7 @@ const trainModel = () => {
   let options = {
     epochs: 200,
   };
-  model.normalizeData();
+
   model.train(
     options,
     (epoch, loss) => {
